@@ -30,6 +30,7 @@ import Foundation
                 
             }catch {
                 print("invalid Data")
+                print(error)
                 return []
             }
         }
@@ -51,6 +52,7 @@ import Foundation
                 
             }catch {
                 print("invalid Data")
+                print(error)
                 return nil
             }
         }
