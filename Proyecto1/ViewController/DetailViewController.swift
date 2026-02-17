@@ -10,6 +10,18 @@ import UIKit
 class DetailViewController: UIViewController {
     
     @IBOutlet weak var favoriteButtonItem: UIBarButtonItem!
+    
+    
+    @IBOutlet weak var thumbnailImagView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var genreLabel: UILabel!
+    @IBOutlet weak var platformImageView: UIImageView!
+   
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+   
+    
+    
     var game: Game!
     
     
@@ -23,6 +35,18 @@ class DetailViewController: UIViewController {
 
        
         navigationItem.title = game.title
+        
+        titleLabel.text = game.title
+        thumbnailImagView.loadFrom(url: game.thumbnail)
+        genreLabel.text = game.genre
+        descriptionLabel.text = game.shortDescription
+        platformImageView.image =  if game.platform == "PC (Windows)"{
+            UIImage(systemName: "desktopcomputer")
+        }else {
+            UIImage(systemName: "safari")
+        }
+            
+        
         
         isFavorite = session.isFavorite(id: game.id)
         setFavorito()
